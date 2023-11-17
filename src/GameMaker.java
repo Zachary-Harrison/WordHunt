@@ -22,6 +22,7 @@ public class GameMaker
                 table[row-1][column-1] = reader.nextLine();
             }
         }
+        reader.close();
         return table;
     }
 
