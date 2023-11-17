@@ -3,12 +3,12 @@ import java.util.*;
 
 
 
-public class GameMaker extends DictionaryMaker
+public class GameMaker
 {
     public static final int X_LENGTH = 4;
     public static final int Y_LENGTH = 4;
     public static String[][] wordHuntBoard = GameMaker.getTable();
-    public static final AvlTree<String> dictionary = DictionaryMaker.readDictionary();
+    public static final AvlTree<String> dictionary = DictionaryMaker.readDictionary("Collins Scrabble Words (2019).txt");
 
     public static String[][] getTable()
     {

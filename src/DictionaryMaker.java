@@ -5,12 +5,12 @@ import java.util.*;
 
 public class DictionaryMaker extends AvlTree<String>
 {
-    public static AvlTree<String> readDictionary()
+    public static AvlTree<String> readDictionary(String filename)
     {
         AvlTree<String> tree = new AvlTree<>();
 
         List<String> wordList = new ArrayList<>();
-        File file = new File("enable1.txt");
+        File file = new File(filename);
         try (Scanner input = new Scanner(file))
         {
             while (input.hasNextLine())

@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WordHunt:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WordHunt_jar</output-path>
+    <root id="archive" name="WordHunt.jar">
+      <element id="module-output" name="WordHunt" />
+      <element id="library" level="module" name="JUnit4" module-name="WordHunt" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/Collins Scrabble Words (2019).txt" />
+    </root>
+  </artifact>
+</component>
