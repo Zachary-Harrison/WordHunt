@@ -12,8 +12,7 @@ public class AvlTree<E extends Comparable<E>>{
 
     public void remove(E x) { root = remove(root, x); }
 
-    //please complete the following seven functions
-    private AvlNode<E> insert(AvlNode<E> v, E x)//this function is overloaded
+    private AvlNode<E> insert(AvlNode<E> v, E x)
     {
         if (v == null) return new AvlNode<>(x);
         if (x == v.key) return v;
@@ -22,7 +21,7 @@ public class AvlTree<E extends Comparable<E>>{
         return balance(v);
     }
 
-    private AvlNode<E> remove(AvlNode<E> v, E x)//this function is overloaded
+    private AvlNode<E> remove(AvlNode<E> v, E x)
     {
         if (v == null) return null;
         if (x.compareTo(v.key) < 0) v.left = remove(v.left, x);
@@ -55,8 +54,9 @@ public class AvlTree<E extends Comparable<E>>{
         v.height = 1 + Math.max(getHeight(v.left), getHeight(v.right));
         return v;
     }
+
     private AvlNode<E> rightRotate (AvlNode<E> z)
-    { //left left case
+    {
         AvlNode<E> y = z.left;
         z.left = y.right;
         y.right = z;
@@ -66,7 +66,7 @@ public class AvlTree<E extends Comparable<E>>{
     }
 
     private AvlNode<E> leftRotate (AvlNode<E> z)
-    { //right right case
+    {
         AvlNode<E> y = z.right;
         z.right= y.left;
         y.left = z;
@@ -76,13 +76,13 @@ public class AvlTree<E extends Comparable<E>>{
     }
 
     private AvlNode<E> doubleLeftRightRotate (AvlNode<E> v)
-    { //left right case
+    {
         v.left = leftRotate(v.left);
         return rightRotate(v);
     }
 
     private AvlNode<E> doubleRightLeftRotate (AvlNode<E> v)
-    { //right left case
+    {
         v.right = rightRotate(v.right);
         return leftRotate(v);
     }
