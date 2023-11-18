@@ -2,7 +2,7 @@
 
 This program solves word connect games similar to Boggle or WordHunt on the GamePigeon iOS extension. Because speed is critical, it stores words in an AVL tree and uses a binary search algorithm to find potential words within a given 4x4 grid, though it can be modified to work for any square grid.
 
-> $\color{red} \text{Disclaimer}$: Please note that this program may not find every possible word in your puzzle, and not all words it identifies may be valid in your specific game. For instance, GamePigeon utilizes a proprietary dictionary that differs from the Collins Scrabble Words (2019) dictionary used in this program. Therefore, the results may vary based on the specific dictionary used by your game.
+> $\color{red} \text{Disclaimer}$: This program may not find every possible word in your puzzle, and not all words it identifies may be valid in your specific game. For instance, GamePigeon utilizes a proprietary dictionary that differs from the Collins Scrabble Words (2019) dictionary used in this program. Therefore, the results may vary based on the specific dictionary used by your game.
 
 
 ## Usage
