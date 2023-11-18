@@ -3,9 +3,9 @@ import java.util.*;
 
 
 
-public class DictionaryMaker extends AvlTree<String>
+public class AVLTreeFactory extends AvlTree<String>
 {
-    public static AvlTree<String> readDictionary(String filename)
+    public static AvlTree<String> createFrom(String filename)
     {
         AvlTree<String> tree = new AvlTree<>();
 

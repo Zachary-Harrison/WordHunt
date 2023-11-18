@@ -1,44 +1,69 @@
 # WordHunt
 
-This program is designed to solve word connect games similar to Boggle or WordHunt on the GamePigeon iOS extension. Because speed is critical, it stores words in an AVL tree and uses a binary search algorithm to find potential words within a given 4x4 grid, though it can be modified to work for any square grid.
+This program solves word connect games similar to Boggle or WordHunt on the GamePigeon iOS extension. Because speed is critical, it stores words in an AVL tree and uses a binary search algorithm to find potential words within a given 4x4 grid, though it can be modified to work for any square grid.
 
-> $\color{red} \text{Disclaimer}$: This program is not guaranteed to find *every* word in your puzzle, nor does every word it finds necessarily exist for your game. GamePigeon, for instance, uses a private dictionary that differs from the one I used: Collins Scrabble Words (2019).
+> $\color{red} \text{Disclaimer}$: Please note that this program may not find every possible word in your puzzle, and not all words it identifies may be valid in your specific game. For instance, GamePigeon utilizes a proprietary dictionary that differs from the Collins Scrabble Words (2019) dictionary used in this program. Therefore, the results may vary based on the specific dictionary used by your game.
 
 
 ## Usage
 
+The original Solver class is no longer supported, but it remains in the code base for posterity. It used an AVL tree to store the dictionary instead of a HashSet, which performs worse and is more complex. It also had a number of limitations that are not present in the new implementation.
 
-### Building and Running as an IntelliJ Project
-
-To use the WordHunt Solver, follow these steps:
-
-1. Clone this repo using:
-   ```bash
-   git clone https://github.com/Zachary-Harrison/WordHunt.git
-   ```
-2. Open the project in IntelliJ IDEA.
-3. Click on `File` > `Open`, navigate to the project directory, and click `OK`.
-4. Once the project has loaded, click on `Run` > `Run Main` or press `Shift` + `F10` to start the program.
-   > $\color{lightgreen} \text{Tip}$: The width and height of the puzzle are CLI arguments, which you can modify in the `Main` configuration. 
-5. Provide each letter on your board (one per prompt), starting at the top row and moving from the left to right. 
-   > $\color{lightblue} \text{Note}$: If your word search has multiple letters in one square (i.e. "qu"), put them in the same prompt.
-6. After all coordinates have been filled, the program will provide the solutions to the puzzle in order from longest to shortest. 
+Instead, use the improved Main class, which has the following benefits:
+- Faster runtime
+- Puzzle width and height will now be specified at runtime
+- Irregular puzzle shapes are now allowed
+- File-based usage
 
 ### Running the Java Executable from Command Line
 
-1. Download [Main](src/Main.java) and [Collins Scrabble Words (2019).txt](src/Collins%20Scrabble%20Words%20(2019).txt) and put them in the same directory.
-2. Run the following command in your terminal, replacing [width] and [height] with the actual weight and height for your puzzle:
-   ```bash
-   java Main [width] [height]
-   ```
-> $\color{lightblue} \text{Note}$: This implementation allows for irregularly shaped puzzles. To do so, choose the smallest square size that fits the shape and press enter or type a space into letter spots that aren't in your puzzle.
+1. Download the [Main](src/Main.java) java file and [Collins Scrabble Words (2019).txt](src/Collins%20Scrabble%20Words%20(2019).txt) and put them in the same directory.
+2. Open a terminal, navigating to the directory with the above downloaded files.
+3. Run the following command to compile the java files into bytecode:
+    ```bash
+    javac Main.java
+    ```
+    > $\color{lightblue} \text{Note}$: You will only need to do this once, unless you modify the source code.
+4. Run the following command to execute the program, replacing [width] and [height] with the desired width and height of the puzzle:
+    ```bash
+    java -cp . Main [width] [height]
+    ```
+    Alternatively, you can provide a text file with comma-separated rows of letters:
+    ```bash
+    java -cp . Main -f [path_to_file]
+    ```
 
 ### Running the Precompiled JAR File
 
-1. Download the JAR file: [WordHunt.jar](out/artifacts/WordHunt_jar/WordHunt.jar)
-2. Run the following command in your terminal, replacing [width] and [height] with the actual weight and height for your puzzle:
-   ```bash
-   java -jar WordHunt.jar [width] [height]
-   ```
+1. Download the [WordHunt.jar](out/artifacts/WordHunt_jar/WordHunt.jar) jar file.
+2. Open a terminal, navigating to the directory with the above downloaded file.
+3. Run the following command to execute the program, replacing appropriate bracketed parameters:
+    ```bash
+    java -jar WordHunt.jar [width] [height]
+    ```
+    Alternatively, you can provide a text file with comma-separated rows of letters:
+    ```bash
+    java -jar WordHunt.jar -f [path_to_file]
+    ```
+> $\color{lightgreen} \text{Tip}$: For irregularly shaped puzzle, choose the smallest width and height that fits and run the program. When you reach a coordinate that should be empty, press enter instead of typing a letter.
 
-> $\color{lightblue} \text{Note}$: This implementation allows for irregularly shaped puzzles. To do so, choose the smallest square size that fits the shape and press enter or type a space into letter spots that aren't in your puzzle.
+## Board File Format
+
+The board file should be a text file where each line represents a row on the board. Each cell in the row should be separated by a comma. Here's an example of what a board file might look like:
+```
+a,b,c
+d,e,f
+g,h,i
+```
+> $\color{lightblue} \text{Note}$: Spaces are ignored, and commas are needed to separate the letters in each cell.
+
+If your puzzle has an irregular shape, make sure to place commas to make empty cells. For instance, a 3x3 puzzle with an empty middle cell could be represented as follows:
+```
+a,b,c
+d, ,f
+g,h,i
+```
+
+> $\color{lightblue} \text{Note}$: If your board ends up having an entire column of empty cells, the empty column will be removed.
+
+For more examples, see the [example puzzles](src/example-puzzles/) I made.
