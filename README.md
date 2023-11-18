@@ -12,29 +12,34 @@ This program is designed to solve word connect games similar to Boggle or WordHu
 
 To use the WordHunt Solver, follow these steps:
 
-1. Open IntelliJ IDEA.
-2. Click on `File > Open`, navigate to the project directory, and click `OK`.
-3. Once the project has loaded, click on `Run > Run 'Main'` or press `Shift` + `F10` to start the program.
-   > $\color{yellow}{Note}$: You can change the 
-4. Provide each letter on your board (one per prompt), starting at the top row and moving from the left to right. 
-   > $\color{yellow}{Note}$: If your word search has multiple letters in one square (i.e. "qu"), put them in the same prompt.
-5. After all coordinates have been filled, the program will provide the solutions to the puzzle in order from longest to shortest. 
+1. Clone this repo using:
+   ```bash
+   git clone https://github.com/Zachary-Harrison/WordHunt.git
+   ```
+2. Open the project in IntelliJ IDEA.
+3. Click on `File` > `Open`, navigate to the project directory, and click `OK`.
+4. Once the project has loaded, click on `Run` > `Run Main` or press `Shift` + `F10` to start the program.
+   > $\color{lightblue} \text{Note}$: You can change the 
+5. Provide each letter on your board (one per prompt), starting at the top row and moving from the left to right. 
+   > $\color{lightblue} \text{Note}$: If your word search has multiple letters in one square (i.e. "qu"), put them in the same prompt.
+6. After all coordinates have been filled, the program will provide the solutions to the puzzle in order from longest to shortest. 
 
 ### Running the Java Executable from Command Line
 
-Alternatively, you can navigate to [src/](src/) use my program from the command like this:
+Alternatively, you can navigate to [src/](src/) and use it from the command like this:
 ```bash
 java Main [width] [height]
 ```
 Please replace [width] and [height] with the actual weight and height for your puzzle.
->$\color{yellow}{Note}$: This implementation allows for irregularly shaped puzzles. To do so, choose the smallest square size that fits the shape and press enter or type a space for unnecessary letter spots.
+> $\color{lightblue} \text{Note}$: This implementation allows for irregularly shaped puzzles. To do so, choose the smallest square size that fits the shape and press enter or type a space for unnecessary letter spots.
 
 ### Running the Precompiled JAR File
 
-1. Download the JAR file: [WordHunt.jar](https://github.com/yourusername/wordhunt-solver/raw/main/WordHunt.jar)
+1. Download the JAR file: [WordHunt.jar](out/artifacts/WordHunt_jar/WordHunt.jar)
 2. Open a terminal/command prompt.
-3. (optional) Navigate to the directory where you downloaded the JAR file.
+3. Navigate to the directory where you downloaded the JAR file.
 4. Run the JAR file using the command: 
    ```bash
-   java -jar <path>/WordHunt.jar [width] [height]
+   java -jar WordHunt.jar [width] [height]
    ```
+5. Enter your puzzle!
