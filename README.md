@@ -23,7 +23,7 @@ Instead, use the improved `Main` class, which has the following benefits:
     ```bash
     javac Main.java
     ```
-    > $\color{lightblue} \text{Note}$: You will only need to do this once, unless you modify the source code.
+    > **Note**: You will only need to do this once, unless you modify the source code.
 4. Run the following command to execute the program, replacing [width] and [height] with the desired width and height of the puzzle:
     ```bash
     java -cp . Main [width] [height]
