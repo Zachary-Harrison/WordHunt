@@ -2,7 +2,7 @@
 
 This program solves word connect games similar to Boggle or WordHunt on the GamePigeon iOS extension. Because speed is critical, it stores words in an AVL tree and uses a binary search algorithm to find potential words within a given 4x4 grid, though it can be modified to work for any square grid.
 
-> $\color{red} \text{Disclaimer}$: This program may not find every possible word in your puzzle, and not all words it identifies may be valid in your specific game. For instance, GamePigeon utilizes a proprietary dictionary that differs from the Collins Scrabble Words (2019) dictionary used in this program. Therefore, the results may vary based on the specific dictionary used by your game.
+> **Disclaimer**: This program may not find every possible word in your puzzle, and not all words it identifies may be valid in your specific game. For instance, GamePigeon utilizes a proprietary dictionary that differs from the Collins Scrabble Words (2019) dictionary used in this program. Therefore, the results may vary based on the specific dictionary used by your game.
 
 
 ## Usage
@@ -45,7 +45,7 @@ Instead, use the improved `Main` class, which has the following benefits:
     ```bash
     java -jar WordHunt.jar -f [path_to_file]
     ```
-> $\color{lightgreen} \text{Tip}$: For irregularly shaped puzzle, choose the smallest width and height that fits and run the program. When you reach a coordinate that should be empty, press enter instead of typing a letter.
+> **Tip**: For irregularly shaped puzzle, choose the smallest width and height that fits and run the program. When you reach a coordinate that should be empty, press enter instead of typing a letter.
 
 ## Board File Format
 
@@ -55,7 +55,7 @@ a,b,c
 d,e,f
 g,h,i
 ```
-> $\color{lightblue} \text{Note}$: Spaces are ignored, and commas are needed to separate the letters in each cell.
+> **Note**: Spaces are ignored, and commas are needed to separate the letters in each cell.
 
 If your puzzle has an irregular shape, make sure to place commas to make empty cells. For instance, a 3x3 puzzle with an empty middle cell could be represented as follows:
 ```
@@ -64,6 +64,6 @@ d, ,f
 g,h,i
 ```
 
-> $\color{lightblue} \text{Note}$: If your board ends up having an entire column of empty cells, the empty column will be removed.
+> **Note**: If your board ends up having an entire column of empty cells, the empty column will be removed.
 
 For more examples, see the [example puzzles](src/example-puzzles/) I made.
