@@ -7,15 +7,15 @@ This program solves word connect games similar to Boggle or WordHunt on the Game
 
 ## Usage
 
-The original Solver class is no longer supported, but it remains in the code base for posterity. It used an AVL tree to store the dictionary instead of a HashSet, which performs worse and is more complex. It also had a number of limitations that are not present in the new implementation.
+The original `Solver` class is no longer supported, but it remains in the code base for posterity. It used an AVL tree to store the dictionary instead of a HashSet, which performs worse and is more complex. It also had a number of limitations that are not present in the new implementation.
 
-Instead, use the improved Main class, which has the following benefits:
+Instead, use the improved `Main` class, which has the following benefits:
 - Faster runtime
 - Puzzle width and height will now be specified at runtime
 - Irregular puzzle shapes are now allowed
 - File-based usage
 
-### Running the Java Executable from Command Line
+### Compiling Main.java from the Command Line
 
 1. Download the [Main](src/Main.java) java file and [Collins Scrabble Words (2019).txt](src/Collins%20Scrabble%20Words%20(2019).txt) and put them in the same directory.
 2. Open a terminal, navigating to the directory with the above downloaded files.
